@@ -1,11 +1,11 @@
-import {Basic} from 'basic-auth-http';
-import {Router} from 'express';
-import {createReadStream, existsSync, lstatSync, readFileSync} from 'fs';
-import {makeItSquare} from 'make-it-square';
-import {basename, dirname, join} from 'path';
-import {parse as parseUrl} from 'url';
+import { Basic } from 'basic-auth-http';
+import { Router } from 'express';
+import { createReadStream, existsSync, lstatSync, readFileSync } from 'fs';
+import { makeItSquare } from 'make-it-square';
+import { basename, dirname, join } from 'path';
+import { parse as parseUrl } from 'url';
 
-import {RANCH} from '../config';
+import { RANCH } from '../config';
 
 
 const router: Router = Router();
@@ -13,12 +13,11 @@ let publicPaths: string[];
 
 
 // auth
-const auth = new Basic({file: join(RANCH, '.lasso.passwd')});
+const auth = new Basic({ file: join(RANCH, '.lasso.passwd') });
 router.use((req: any, res, next) => {
 
   // We refresh the public paths to every request
   publicPaths = getPublicPaths();
-
   const urlpath = parseUrl(req.url).pathname;
   const filepath = join(RANCH, urlpath);
 
@@ -45,12 +44,12 @@ router.use((req: any, res, next) => {
 });
 
 // get
-router.get('*', async(req: any, res) => {
+router.get('*', async (req: any, res) => {
   createReadStream(req.filepath).pipe(res);
 
 });
 
-export {router as lassoRouter};
+export { router as lassoRouter };
 
 
 function getPublicPaths(): string[] {

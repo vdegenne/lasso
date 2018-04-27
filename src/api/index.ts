@@ -1,7 +1,7 @@
 import * as express from 'express';
 import * as path from 'path';
 
-import {lassoRouter} from './lasso.router';
+import { lassoRouter } from './lasso.router';
 
 const api: express.Express = express();
 
@@ -11,10 +11,10 @@ if (!(process.env.NODE_ENV && process.env.NODE_ENV === 'test')) {
 }
 
 api.use(express.json());
-api.use(express.urlencoded({extended: true}));
+api.use(express.urlencoded({ extended: true }));
 
 
 // lasso
 api.use(lassoRouter);
 
-export default api;
+export { api };

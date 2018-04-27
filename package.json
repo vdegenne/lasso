@@ -1,9 +1,16 @@
 {
   "name": "lasso",
   "version": "0.1.0",
-  "description": "description",
-  "author": "author",
-  "repository": "repository",
+  "description": "A tiny application to expose a file-system branch to the world.",
+  "author": "Valentin Degenne <vdegenne@gmail.com>",
+  "repository": "vdegenne/lasso",
+  "keywords": [
+    "lasso",
+    "http",
+    "fetch",
+    "authorization"
+  ],
+  "bin": "bin/lasso",
   "license": "MIT",
   "scripts": {
     "start": "node build/lasso",
