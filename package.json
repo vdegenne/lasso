@@ -1,6 +1,6 @@
 {
-  "name": "lasso",
-  "version": "0.1.0",
+  "name": "beautiful-lasso",
+  "version": "0.1.1",
   "description": "A tiny application to expose a file-system branch to the world.",
   "author": "Valentin Degenne <vdegenne@gmail.com>",
   "repository": "vdegenne/lasso",
