@@ -1,0 +1,2 @@
+I am a file in subdirectory in public-directory. I am private despite that public-directory was made public.
+sub-directories in public directories are not exposed to the world. You have to write every relative directories you want to expose in ".lasso.public".

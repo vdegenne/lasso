@@ -8,9 +8,26 @@ const expect = chai.expect;
 
 
 suite('Api', () => {
-  test('Bob is not authorized to access extra-private.txt', async() => {
-    await supertest(api).get('/extra-private.txt').expect((res: Response) => {
+  test('public-file.txt is public', async() => {
+    await supertest(api).get('/public-file.txt').expect((res: Response) => {
+      expect(res.status).to.equal(200);
+    });
+  });
+
+  test('private-file.txt is private (Unauthorized)', async() => {
+    await supertest(api).get('/private-file.txt').expect((res: Response) => {
       expect(res.status).to.equal(401);
     });
+  });
+
+  test('bob can access the private-file.txt', async() => {
+    const token = Buffer.from('bob:superpass').toString('base64');
+
+    await supertest(api)
+        .get('/private-file.txt')
+        .set('Authorization', `Basic ${token}`)
+        .expect((res: Response) => {
+          expect(res.status).to.equal(200);
+        });
   });
 });
