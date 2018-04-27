@@ -53,13 +53,14 @@ curl http://alice.com:8000/public-file.txt
 
 (*wildcards are not supported at this moment*)
 
-You can also make a directory publicly
+You can also make a directory publicly. In `.lasso.public` :
 
 ```text
+public-file.txt
 public-directory
 ```
 
-Every file in `public-directory` can be requested
+Every file in `public-directory` are exposed,
 
 ```bash
 curl http://alice.com:8000/public-directory/file1.txt
