@@ -3,5 +3,4 @@ node_js:
   - "9"
   - "8"
 env:
-  - NODE_ENV=test
-  - RANCH=fixtures
+  - NODE_ENV=test RANCH=fixtures

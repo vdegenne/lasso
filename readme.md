@@ -16,7 +16,7 @@ RANCH=exposed_directory lasso [--port 8000]
 # exposed_directory is relative to where the command is invoked
 ```
 
-This will expose `exposed_directory` (the **ranch**) to the world on port 8000 (default to 3000, the `--port` is optional). Of course this will not really expose the directory to the world unless you are running this command on a public machine and configure the firewall to accept entrance on the given port.
+This will expose `exposed_directory` (also called the **ranch** ) to the world on port 8000 (default to 3000, the `--port` is optional). Of course this will not really expose the directory to the world unless you are running this command on a public machine and configure the firewall to accept entrance on the given port.
 
 ## Configuration
 
@@ -34,3 +34,37 @@ curl http://alice.com:8000/database_backup.sql -u bob:bob_password
 curl http://alice.com:8000/database_backup.sql -u bob
 # to prompt for the password so it's not written in bash history
 ```
+
+## .lasso.public
+
+It's also possible to make some files available publicly without basic authentication required. Just create `.lasso.public` in the ranch :
+
+```text
+public-file.txt
+public-file2.txt
+```
+
+Now bob and whoever can request :
+
+```bash
+curl http://alice.com:8000/public-file.txt
+# without the need of authentication
+```
+
+(*wildcards are not supported at this moment*)
+
+You can also make a directory publicly
+
+```text
+public-directory
+```
+
+Every file in `public-directory` can be requested
+
+```bash
+curl http://alice.com:8000/public-directory/file1.txt
+```
+
+(*note that making a directory public is not making its subdirectories public too, you have to explicitily write every directory you want to make public into `.lasso.public`*)
+
+This is Lasso philosophy, you just use your lasso to quickly grab some files, with a very basic layer of security.
