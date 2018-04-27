@@ -1,6 +1,6 @@
 {
   "name": "beautiful-lasso",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A tiny application to expose a file-system branch to the world.",
   "author": "Valentin Degenne <vdegenne@gmail.com>",
   "repository": "vdegenne/lasso",
@@ -10,7 +10,9 @@
     "fetch",
     "authorization"
   ],
-  "bin": "bin/lasso",
+  "bin": {
+    "lasso": "bin/lasso"
+  },
   "license": "MIT",
   "scripts": {
     "start": "node build/lasso",
