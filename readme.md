@@ -6,10 +6,11 @@
 ## Installation
 
 ```bash
-sudo yarn global add lasso
+sudo yarn global add beautiful-lasso
 # or
-sudo npm i -g lasso
+sudo npm i -g beautiful-lasso
 ```
+(*the reason why it's `beautiful-lasso` and not `lasso` is because the name was already taken on npm*)
 
 ## Usage
 
