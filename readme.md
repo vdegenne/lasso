@@ -20,7 +20,7 @@ RANCH=exposed_directory lasso [--port 8000]
 # exposed_directory is relative to where the command is invoked
 ```
 
-This will expose `exposed_directory` (also called the **ranch** ) to the world on port 8000 (default to 3000, the `--port` is optional). Of course this will not really expose the directory to the world unless you are running this command on a public machine and configure the firewall to accept entrance on the given port.
+This will expose `exposed_directory` (also called the **ranch** ) to the world on port 8000 (default to 3000, the `--port` is optional). Of course this will not really expose the directory to the world unless you are running this command on a public machine and configure the firewall to accept entrances on the given port.
 
 ## Configuration
 
@@ -30,7 +30,7 @@ By default, the files in the ranch are secured with http basic authentication. Y
 bob:bob_password
 ```
 
-Now bob can request a file in the ranch, for instance :
+Now bob can request a file in the ranch :
 
 ```bash
 curl http://alice.com:8000/database_backup.sql -u bob:bob_password
@@ -73,3 +73,13 @@ curl http://alice.com:8000/public-directory/file1.txt
 (*note that making a directory public is not making its subdirectories public too, you have to explicitily write every directory you want to make public into `.lasso.public`*)
 
 This is Lasso philosophy, you just use your lasso to quickly grab some files, with a very basic layer of security.
+
+
+## Commands
+
+You can also use command keywords, for example :
+
+```bash
+curl http://alice.com:8000/public-directory/latest -u bob
+# This will fetch the last modified file inside public-directory
+```
