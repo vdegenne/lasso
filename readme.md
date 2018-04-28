@@ -13,6 +13,21 @@ sudo npm i -g beautiful-lasso
 ```
 (*the reason why it's `beautiful-lasso` and not `lasso` is because the name was already taken on npm*)
 
+### Docker
+
+If you don't have node but docker installed on your machine you can pull a docker image and run the application in a container. The advantage of this method is that you don't have to configure and install node on your machine, you just pull the container and run the application :
+
+```bash
+docker run --rm -it \
+           --name <container_name> \
+           -p <host_port>:3000 \
+           -e RANCH=/ranch \
+           -v <path_of_the_directory_to_expose>:/ranch \
+           vdegenne/lasso
+```
+
+Replace the parts with your own values. You can also add `-d` to run the application in detached mode.
+
 ## Usage
 
 ```bash

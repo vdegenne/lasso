@@ -15,7 +15,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "node build/lasso",
+    "start": "./bin/lasso",
     "clean": "rimraf build",
     "build": "yarn clean && tsc",
     "test": "RANCH=fixtures NODE_ENV=test yarn build && mocha",
